@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Trichromatic - Admin Portal</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Areas/Admin/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/Areas/Admin/Content/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Areas/Admin/Content/Site.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/Areas/Admin/Content/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- DataTables CSS -->
+    <link href="~/Areas/Admin/Content/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="~/Areas/Admin/Content/dataTables.responsive.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery -->
+    <script src="~/Areas/Admin/Scripts/jquery.min.js"></script>
+</head>
+<body>
+    <div id="navbar">
+        <div id="top-bar" class="container">
+            <div id="logo">
+                <a href=""><img src="~/Content/images/logo.png" /></a>
+            </div>
+        </div>
+        <div class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href=""><img id="logo-small" src="/Content/images/logo-sm.png" /></a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="@Url.Action("Index", "Slider", new { area = "Admin" })">Slider</a></li>
+                        <li><a href="@Url.Action("Index", "Divisions", new { area = "Admin"})">Divisions</a></li>
+                        <li><a href="@Url.Action("Index", "Product", new { area = "Admin"})">Products</a></li>
+                        <li><a href="@Url.Action("Index", "Page", new { area = "Admin"})">Pages</a></li>
+                        <li><a href="@Url.Action("Index", "SocialMedia", new { area = "Admin"})">Social Media</a></li>
+                        <li><a href="@Url.Action("Index", "User", new { area = "Admin" })">Admins</a></li>
+                        <li style="float:right"><a href="@Url.Action("Index", "User", new { area = "Admin" })">Logout</a></li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <hr id="nav-hr" />
+    </div>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="container">
+            <p>
+                Copyright &copy; 2015 @{ if (DateTime.Now.Year > 2015)
+                 {<span>-  @DateTime.Now.Year</span>}} TRICHROMATIC - WEST, INC.
+            </p>
+        </div>
+    </footer>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Areas/Admin/Scripts/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Areas/Admin/Scripts/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Areas/Admin/Scripts/site.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="~/Areas/Admin/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Admin/Scripts/dataTables.bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable({
+                responsive: true
+            });
+        });
+    </script>
+</body>
+</html>

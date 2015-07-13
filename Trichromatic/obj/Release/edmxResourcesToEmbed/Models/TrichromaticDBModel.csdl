@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrichromaticModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TrichromaticEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Divisions" EntityType="TrichromaticModel.Division" />
+    <EntitySet Name="Pages" EntityType="TrichromaticModel.Page" />
+    <EntitySet Name="Products" EntityType="TrichromaticModel.Product" />
+    <EntitySet Name="ProductGroups" EntityType="TrichromaticModel.ProductGroup" />
+    <EntitySet Name="Sections" EntityType="TrichromaticModel.Section" />
+    <EntitySet Name="Sliders" EntityType="TrichromaticModel.Slider" />
+    <EntitySet Name="SocialMedias" EntityType="TrichromaticModel.SocialMedia" />
+    <EntitySet Name="SubSections" EntityType="TrichromaticModel.SubSection" />
+    <AssociationSet Name="FK_Section_Division" Association="TrichromaticModel.FK_Section_Division">
+      <End Role="Division" EntitySet="Divisions" />
+      <End Role="Section" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_ProductGroup" Association="TrichromaticModel.FK_Product_ProductGroup">
+      <End Role="ProductGroup" EntitySet="ProductGroups" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductGroup_SubSection" Association="TrichromaticModel.FK_ProductGroup_SubSection">
+      <End Role="SubSection" EntitySet="SubSections" />
+      <End Role="ProductGroup" EntitySet="ProductGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubSection_Section" Association="TrichromaticModel.FK_SubSection_Section">
+      <End Role="Section" EntitySet="Sections" />
+      <End Role="SubSection" EntitySet="SubSections" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Banner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Sections" Relationship="TrichromaticModel.FK_Section_Division" FromRole="Division" ToRole="Section" />
+  </EntityType>
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="HTML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PGID" Type="Int32" Nullable="false" />
+    <Property Name="SortOrder" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ProductGroup" Relationship="TrichromaticModel.FK_Product_ProductGroup" FromRole="Product" ToRole="ProductGroup" />
+  </EntityType>
+  <EntityType Name="ProductGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SSID" Type="Int32" Nullable="false" />
+    <Property Name="SortOrder" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="TrichromaticModel.FK_Product_ProductGroup" FromRole="ProductGroup" ToRole="Product" />
+    <NavigationProperty Name="SubSection" Relationship="TrichromaticModel.FK_ProductGroup_SubSection" FromRole="ProductGroup" ToRole="SubSection" />
+  </EntityType>
+  <EntityType Name="Section">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" Nullable="false" />
+    <Property Name="DID" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Division" Relationship="TrichromaticModel.FK_Section_Division" FromRole="Section" ToRole="Division" />
+    <NavigationProperty Name="SubSections" Relationship="TrichromaticModel.FK_SubSection_Section" FromRole="Section" ToRole="SubSection" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SocialMedia">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Icon" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubSection">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SID" Type="Int32" Nullable="false" />
+    <Property Name="SortOrder" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ProductGroups" Relationship="TrichromaticModel.FK_ProductGroup_SubSection" FromRole="SubSection" ToRole="ProductGroup" />
+    <NavigationProperty Name="Section" Relationship="TrichromaticModel.FK_SubSection_Section" FromRole="SubSection" ToRole="Section" />
+  </EntityType>
+  <Association Name="FK_Section_Division">
+    <End Type="TrichromaticModel.Division" Role="Division" Multiplicity="1" />
+    <End Type="TrichromaticModel.Section" Role="Section" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Division">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Section">
+        <PropertyRef Name="DID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_ProductGroup">
+    <End Type="TrichromaticModel.ProductGroup" Role="ProductGroup" Multiplicity="1" />
+    <End Type="TrichromaticModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductGroup">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="PGID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductGroup_SubSection">
+    <End Type="TrichromaticModel.SubSection" Role="SubSection" Multiplicity="1" />
+    <End Type="TrichromaticModel.ProductGroup" Role="ProductGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubSection">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductGroup">
+        <PropertyRef Name="SSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubSection_Section">
+    <End Type="TrichromaticModel.Section" Role="Section" Multiplicity="1" />
+    <End Type="TrichromaticModel.SubSection" Role="SubSection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SubSection">
+        <PropertyRef Name="SID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

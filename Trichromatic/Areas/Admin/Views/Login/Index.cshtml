@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Trichromatic.Models.User>
+
+@{
+    ViewBag.Title = "Admin Panel";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Trichromatic - Admin Portal</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Areas/Admin/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/Areas/Admin/Content/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Areas/Admin/Content/Site.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/Areas/Admin/Content/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="navbar">
+        <div id="top-bar" class="container">
+            <div id="logo">
+                <a href="@Url.Action("Index", "Home")"><img src="~/Content/images/logo.png" /></a>
+            </div>
+        </div>
+        <div class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="@Url.Action("Index", "Home")"><img id="logo-small" src="/Content/images/logo-sm.png" /></a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                </div>
+            </div>
+        </div>
+        <hr id="nav-hr" />
+    </div>
+    <div class="container">
+        <div class="row" style="margin-bottom:60px; margin-top:40px;">
+            <h1 class="text-center">Welcome to Trichromatic Admin Portal</h1>
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel-heading">
+                    <p class="text-center">Please Enter Your Login Credentials</p>
+                </div>
+                <div class="panel-body">
+                    <form role="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Username" name="username" type="email" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                            </div>
+                            <!-- Change this to a button or input when using this as a form -->
+                            <input type="submit" value="LogOn" class="btn btn-lg btn-info btn-block"/>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>
+                Copyright &copy; 2015 @{ if (DateTime.Now.Year > 2015)
+                 {<span>-  @DateTime.Now.Year</span>}} TRICHROMATIC - WEST, INC.
+            </p>
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="~/Areas/Admin/Scripts/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Areas/Admin/Scripts/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Areas/Admin/Scripts/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Areas/Admin/Scripts/site.js"></script>
+</body>
+</html>

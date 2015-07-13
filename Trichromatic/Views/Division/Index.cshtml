@@ -1,0 +1,98 @@
+﻿@model Trichromatic.Models.Division
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<div class="section top-20">
+    <div class="container body-content">
+
+        <div id="myCarousel" class="carousel slide hide-on-mobile" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="@Model.Banner" alt="@Model.Name">
+                </div>
+            </div>
+        </div>
+        <h1>@Model.Title</h1>
+        <br />
+        <div class="row">
+            @if (!string.IsNullOrEmpty(Model.Logo)) 
+            { 
+                <div class="col-lg-2 float-left">
+                    <img src="@Model.Logo" /><br /><br />
+                </div>
+                <div class="col-lg-9">
+                    <p>
+                        @Model.Description
+                    </p>
+                </div>
+            }
+            else
+            { 
+                <div class="col-lg-12">
+                    <p>
+                        @Model.Description
+                    </p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@{
+    List<Trichromatic.Models.Section> sections = Model.Sections.OrderBy(x => x.SortOrder).ThenBy(x=>x.ID).ToList();
+}
+@for (int i = 0; i < sections.Count; i++){
+        <div class="section">
+            <div class="container body-content">
+                <h1>@sections[i].Title</h1>
+                @{List<Trichromatic.Models.SubSection> subSections = sections[i].SubSections.OrderBy(x => x.SortOrder).ThenBy(x => x.ID).ToList();}
+                @for (int j = 0; j < subSections.Count; j++)
+			    {
+			        <h3>@subSections[j].Title</h3>
+                    
+                    List<Trichromatic.Models.ProductGroup> productGroups = subSections[j].ProductGroups.OrderBy(x => x.SortOrder).ThenBy(x => x.ID).ToList();
+                    for (int k = 0; k < productGroups.Count; k++)
+                    {
+                        <div class="panel panel-default">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#@productGroups[k].ID">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">@productGroups[k].Name</h4>
+                                </div>
+                            </a>
+                            <div id="@productGroups[k].ID" class="panel-collapse collapse">
+                                <!-- add "in" for active-->
+                                <div class="panel-body">
+                                    @{List<Trichromatic.Models.Product> products = productGroups[k].Products.Where(x => x.Active == true).OrderBy(x => x.SortOrder).ThenBy(x => x.ID).ToList();}
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Product</th>
+                                                <th>Description</th>
+                                                <th style="width:140px;">Link</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @for (int l = 0; l < products.Count; l++)
+                                            {
+                                                <tr>
+                                                    <td>@products[l].Name</td>
+                                                    <td>@products[l].Description</td>
+                                                    <td>@if(!string.IsNullOrEmpty(products[l].Link))
+                                                        {
+                                                            <a href="@products[l].Link" target="_new"><img src="~/Content/images/pdf.gif" border="0" align="absmiddle">Data sheet</a>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    }
+			    }
+                </div>
+            </div>
+}

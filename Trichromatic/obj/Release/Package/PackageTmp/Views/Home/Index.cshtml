@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Trichromatic.Models.Slider> 
+@{
+    ViewBag.Title = "Home";
+}
+<div class="container body-content top-20">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            @{
+                int i = 0;
+                foreach (var item in Model)
+                { 
+                    <li data-target="#myCarousel" data-slide-to="@i"></li>   
+                    i++;
+                }
+            }
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            @{
+                int j = 0;
+                foreach (var item in Model)
+                {
+                    if (j == 0)
+                    {
+                        <div class="item active">
+                            <img src="@item.Image" class="slider-image" alt="@item.Title">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h1>@item.Title</h1>
+                                    <p>@item.Description</p>
+                                    <p><a class="btn btn-md btn-primary" href="@item.Link" role="button">Learn more</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        j++;
+                    }
+                    else
+                    {
+                        <div class="item">
+                            <img src="@item.Image" class="slider-image" alt="@item.Title">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h1>@item.Title</h1>
+                                    <p>@item.Description</p>
+                                    <p><a class="btn btn-md btn-primary" href="@item.Link" role="button">Learn more</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+            </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <br />
+    <div id="divisions" class="row">
+        @{
+            List<Trichromatic.Models.Division> Divisions = ViewBag.Divisions;
+
+            foreach (var item in Divisions)
+            {
+                <div class="col-md-3">
+                    <a href="@Url.Action("Index", "Division", new { name = item.Name })">
+                        <img src="@item.Image" title="@item.Title" />
+                        <h4>@item.Title</h4>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+</div>

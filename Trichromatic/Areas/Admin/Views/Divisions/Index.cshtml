@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Trichromatic.Models.Division>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Manage Divisions</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.Banner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th align="center">
+                @Html.DisplayNameFor(model => model.Logo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SortOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td align="center">
+                    <img src="@Html.DisplayFor(modelItem => item.Image)" alt="Image" class="image-thumb" />
+                </td>
+                <td align="center">
+                    <img src="@Html.DisplayFor(modelItem => item.Banner)" alt="Image" class="image-thumb" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td align="center">
+                    @if (string.IsNullOrEmpty(item.Logo))
+                    {
+                        @Html.DisplayFor(modelItem => item.Logo)
+                    }
+                    else
+                    {
+                        <img src="@Html.DisplayFor(modelItem => item.Logo)" alt="Image" class="image-thumb" />
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SortOrder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                    @*@Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

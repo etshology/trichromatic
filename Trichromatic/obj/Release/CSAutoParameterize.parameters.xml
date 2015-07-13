@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-Trichromatic-20150524092323.mdf;Initial Catalog=aspnet-Trichromatic-20150524092323;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Hesham\\Documents\\Visual\ Studio\ 2013\\Projects\\Trichromatic\\Trichromatic\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="TrichromaticEntities-Web.config Connection String" description="TrichromaticEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.TrichromaticDBModel.csdl|res://*/Models.TrichromaticDBModel.ssdl|res://*/Models.TrichromaticDBModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;Server=tcp:u68ufsh6ay.database.windows.net,1433;Database=Trichromatic;User ID=techberg@u68ufsh6ay;Password=Bazinga@1;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Hesham\\Documents\\Visual\ Studio\ 2013\\Projects\\Trichromatic\\Trichromatic\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TrichromaticEntities']/@connectionString" />
+  </parameter>
+</parameters>

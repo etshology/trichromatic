@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="trichromatic" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Hesham\\Documents\\Visual\ Studio\ 2013\\Projects\\Trichromatic\\Trichromatic\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Hesham\\Documents\\Visual\ Studio\ 2013\\Projects\\Trichromatic\\Trichromatic\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="trichromatic/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Hesham\\Documents\\Visual\ Studio\ 2013\\Projects\\Trichromatic\\Trichromatic\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="TrichromaticEntities-Web.config Connection String" description="" value="metadata=res://*/Models.TrichromaticDBModel.csdl|res://*/Models.TrichromaticDBModel.ssdl|res://*/Models.TrichromaticDBModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=tcp:u68ufsh6ay.database.windows.net,1433;Initial Catalog=Trichromatic;Integrated Security=False;User ID=techberg@u68ufsh6ay;Password=Bazinga@1;Connect Timeout=30;Encrypt=True&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Hesham\\Documents\\Visual\ Studio\ 2013\\Projects\\Trichromatic\\Trichromatic\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='TrichromaticEntities']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." value="Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-Trichromatic-20150524092323.mdf;Initial Catalog=aspnet-Trichromatic-20150524092323;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Hesham\\Documents\\Visual\ Studio\ 2013\\Projects\\Trichromatic\\Trichromatic\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>
