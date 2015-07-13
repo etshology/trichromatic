@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Mvc.CascadeDropDown</id>
+    <version>1.1.0</version>
+    <title>CascadeDropDown Helpers for ASP.NET MVC</title>
+    <authors>Alex Artyomov</authors>
+    <owners>Alex Artyomov</owners>
+    <licenseUrl>https://raw.githubusercontent.com/alexanderar/Mvc.CascadeDropDown/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/alexanderar/Mvc.CascadeDropDown</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Cascading DropDownList html helpers for ASP.Net MVC. 
+Works with all ASP.Net MVC versions strating from version 3. Does not require any third party libraries (not even jQuery)</description>
+    <summary>Cascading DropDownList html helpers for ASP.Net MVC.</summary>
+    <copyright>Alex Artyomov 2015</copyright>
+    <tags>ASP.NET MVC DropDown HtmlHelpers Extensions Cascading</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="Microsoft.AspNet.Mvc" version="3.0.20105.1" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
