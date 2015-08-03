@@ -21,6 +21,7 @@
     <!-- DataTables Responsive CSS -->
     <link href="~/Areas/Admin/Content/dataTables.responsive.css" rel="stylesheet">
 
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,7 +29,13 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- jQuery -->
-    <script src="~/Areas/Admin/Scripts/jquery.min.js"></script>
+    
+    @*<script src="~/Areas/Admin/Scripts/jquery.js"></script>
+    <script src="@Url.Content("~/Areas/Admin/Scripts/jquery-1.11.3.min.js")" type="text/javascript"></script>*@
+
+
+    <script src="@Url.Content("~/Areas/Admin/Scripts/elFinder-2.0/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Areas/Admin/Scripts/elFinder-2.0/jquery-ui-1.8.11.min.js")" type="text/javascript"></script>
 </head>
 <body>
     <div id="navbar">
@@ -75,7 +82,7 @@
         </div>
     </footer>
     <!-- Bootstrap Core JavaScript -->
-    <script src="~/Areas/Admin/Scripts/bootstrap.min.js"></script>
+    @*<script src="~/Areas/Admin/Scripts/bootstrap.min.js"></script>*@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="~/Areas/Admin/Scripts/metisMenu.min.js"></script>
     <!-- Custom Theme JavaScript -->
@@ -91,5 +98,20 @@
             });
         });
     </script>
+
+
+    @*<link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/smoothness/jquery-ui.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>*@
+
+
+    @*<link href="@Url.Content("~/Areas/Admin/Content/elFinder-2.0/Site.css")" rel="stylesheet" type="text/css" />*@
+    <link href="@Url.Content("~/Areas/Admin/Content/elFinder-2.0/themes/base/jquery.ui.all.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Areas/Admin/Content/elFinder-2.0/css/elfinder.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Areas/Admin/Content/elFinder-2.0/css/theme.css")" rel="stylesheet" type="text/css" />
+    
+    
+    
+
+    <script src="@Url.Content( "~/Areas/Admin/Scripts/elFinder-2.0/elfinder.min.js" )" type="text/javascript"></script>
 </body>
 </html>

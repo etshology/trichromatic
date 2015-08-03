@@ -39,6 +39,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\..\Nueva carpeta\File Manager\Source code\elfinderaspnet_4c8fa3b5a145\elFinder.Connector.Integration.Autofac\bin\Debug\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="elFinder.Connector">
+      <HintPath>..\..\..\Nueva carpeta\File Manager\Source code\elfinderaspnet_4c8fa3b5a145\elFinder.Connector.Integration.Autofac\bin\Debug\elFinder.Connector.dll</HintPath>
+    </Reference>
+    <Reference Include="elFinder.Connector.Integration.Autofac">
+      <HintPath>..\..\..\Nueva carpeta\File Manager\Source code\elfinderaspnet_4c8fa3b5a145\elFinder.Connector.Integration.Autofac\bin\Debug\elFinder.Connector.Integration.Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mvc.CascadeDropDown">
       <HintPath>..\packages\Mvc.CascadeDropDown.1.1.0\lib\Mvc.CascadeDropDown.dll</HintPath>
@@ -166,6 +175,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DivisionsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FileManagerController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\PageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
@@ -234,6 +244,49 @@
     <Content Include="Areas\Admin\Content\bootstrap.min.css" />
     <Content Include="Areas\Admin\Content\dataTables.bootstrap.css" />
     <Content Include="Areas\Admin\Content\dataTables.responsive.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\css\elfinder.min.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\css\theme.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\img\arrows-active.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\img\arrows-normal.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\img\crop.gif" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\img\dialogs.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\img\icons-big.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\img\icons-small.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\img\logo.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\img\progress.gif" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\img\quicklook-bg.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\img\quicklook-icons.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\img\resize.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\img\spinner-mini.gif" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\img\toolbar.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\Site.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.all.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.base.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.button.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.core.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.slider.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Areas\Admin\Content\elFinder-2.0\themes\base\jquery.ui.theme.css" />
     <Content Include="Areas\Admin\Content\font-awesome.css" />
     <Content Include="Areas\Admin\Content\font-awesome.min.css" />
     <Content Include="Areas\Admin\Content\metisMenu.css" />
@@ -249,6 +302,26 @@
     <Content Include="Areas\Admin\Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Scripts\dataTables.bootstrap.js" />
     <Content Include="Areas\Admin\Scripts\dataTables.bootstrap.min.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\elfinder.min.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.ar.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.bg.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.ca.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.cs.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.de.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.es.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.fr.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.hu.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.jp.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.LANG.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.nl.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.no.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.pl.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.pt_BR.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.ru.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\i18n\elfinder.zh_CN.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\jquery-1.7.1.min.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\jquery-ui-1.8.11.min.js" />
+    <Content Include="Areas\Admin\Scripts\elFinder-2.0\proxy\elFinderSupportVer1.js" />
     <Content Include="Areas\Admin\Scripts\jquery.dataTables.js" />
     <Content Include="Areas\Admin\Scripts\jquery.dataTables.min.js" />
     <Content Include="Areas\Admin\Scripts\jquery.js" />
@@ -685,6 +758,7 @@
     <Content Include="Areas\Admin\fonts\fontawesome-webfont.woff" />
     <Content Include="Areas\Admin\fonts\FontAwesome.otf" />
     <Content Include="Areas\Admin\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\FileManager\Index.cshtml" />
     <None Include="Properties\PublishProfiles\trichromatic - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\trichromatic - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\trichromaticdemo - FTP.pubxml" />
