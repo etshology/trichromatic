@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="fileManager">finder</div>
+
+<script type="text/javascript" charset="utf-8">
+     $(function () {
+         $('.fileManager').elfinder({
+             url: '@Url.Content("~/elfinder.connector")',
+             height: 600
+         });
+     });
+</script>
